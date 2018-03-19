@@ -1,12 +1,9 @@
 import unittest
 import os
 import sys
-import importlib.util
 
-lib_path = "%s/../1_get_deck_names.py" % os.path.dirname(os.path.realpath(__file__))
-spec = importlib.util.spec_from_file_location('lib', lib_path)
-lib = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(lib)
+from helpers import import_module
+lib = import_module('lib', '%s/../1_get_deck_names.py' % os.path.dirname(os.path.realpath(__file__)))
 
 class TestMethods(unittest.TestCase):
 
